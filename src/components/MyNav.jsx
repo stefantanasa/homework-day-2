@@ -8,7 +8,7 @@ const MyNav = () => {
         <Container>
           <Navbar.Brand href="#home">StriveBooks</Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-          <Navbar.Collapse id="responsive-navbar-nav">
+          <Navbar.Collapse id="responsive-navbar-nav justify-content-center">
             <Nav className="me-auto">
               <Nav.Link href="#">Home</Nav.Link>
               <Nav.Link href="#">About</Nav.Link>

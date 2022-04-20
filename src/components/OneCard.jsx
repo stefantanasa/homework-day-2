@@ -4,7 +4,7 @@ const OneCard = ({ title, category, asin, image, price }) => {
   return (
     <div>
       <div className="one-card">
-        <img className="one-card-image" src={image} />
+        <img className="one-card-image" alt="" src={image} />
         <p className="product-title">{title}</p>
       </div>
       <div className="under-card ">

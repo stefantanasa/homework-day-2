@@ -1,6 +1,4 @@
 import React, { Component } from "react";
-import { Container, Navbar, Nav } from "react-bootstrap";
-import Book from "./Book";
 import horror from "../Data/horror.json";
 import OneCard from "./OneCard";
 
