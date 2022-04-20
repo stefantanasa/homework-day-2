@@ -64,16 +64,19 @@ margin-left: 20px;
   border-radius: 0.5rem;
 
 }
-.product-title {
+.product-title  {
   position: absolute;
-  align-self: center;
-  top: 16.5rem;
+  top: 16rem;
   font-size: 15px;
-  margin-left: 1rem;
-  margin-right: 1rem;
   font-weight: 700;
-  font-family:Arial, Helvetica, sans-serif}
+  font-family:Arial, Helvetica, sans-serif;
+  overflow:hidden;
+  text-overflow: ellipsis;
+  max-width: 20ch;
+  max-height: 3rem;
+  white-space: wrap;
 
+}
 
 .under-card{
   display: flex;
@@ -91,7 +94,7 @@ margin-top: 1rem;
 margin-bottom: 2rem;
 }
 
-.product-category {
+.product-price {
   color: #000000;
   position: absolute;
   right:6.5rem;
@@ -125,4 +128,29 @@ margin-bottom: 2rem;
 
 .jumbotron {
   background-color: #bdacff !important;
+
+}
+.latest-release {
+  border-bottom: 1px solid #bdacff;
+  margin-bottom: 2rem;
+  box-shadow: 0px 5px 10px 0px #bdacff;
+}
+
+.product-category {
+  color : #ffffff;
+  font-weight: 700;
+  position: absolute;
+  bottom: -0.5rem;
+  background-color: #6767675a;
+ 
+  padding: 0.4rem;
+  padding-top: 0rem;
+  padding-bottom: 0rem;
+  border-radius: 0.4rem;
+}
+
+.more {
+  background-color: #bdacff !important;
+  border-bottom: 3px;
+  border: 2px solid white !important;
 }
