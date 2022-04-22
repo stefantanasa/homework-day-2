@@ -4,7 +4,6 @@ import OneCard from "./OneCard";
 
 const LatestRelease = () => {
   let books = horror.slice(0, 15);
-  console.log(books);
 
   return (
     <div>
@@ -21,6 +20,7 @@ const LatestRelease = () => {
               image={book.img}
               key={book.asin}
               price={book.price}
+              asin={book.asin}
             />
           ))}
         </div>

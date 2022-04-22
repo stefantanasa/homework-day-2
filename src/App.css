@@ -39,66 +39,62 @@
 
 /* custom css */
 
-.one-card{
+.one-card {
   display: flex;
   justify-content: center;
-  position:relative;
+  position: relative;
   height: 21rem;
   width: 15rem;
   background-color: white;
-;
-margin-left: 20px;
+  margin-left: 20px;
 
   border-radius: 0.5rem;
-  box-shadow: -15px 16px 22px -11px rgba(0,0,0,0.91);
--webkit-box-shadow: -15px 16px 22px -11px rgba(0,0,0,0.91);
--moz-box-shadow: -15px 16px 22px -11px rgba(0,0,0,0.91);
+  box-shadow: -15px 16px 22px -11px rgba(0, 0, 0, 0.91);
+  -webkit-box-shadow: -15px 16px 22px -11px rgba(0, 0, 0, 0.91);
+  -moz-box-shadow: -15px 16px 22px -11px rgba(0, 0, 0, 0.91);
 }
 
-.one-card-image{
-  
-  position:absolute;
+.one-card-image {
+  position: absolute;
   object-fit: cover;
   max-height: 15rem;
   width: 15rem;
   border-radius: 0.5rem;
-
 }
-.product-title  {
+.product-title {
   position: absolute;
   top: 16rem;
   font-size: 15px;
   font-weight: 700;
-  font-family:Arial, Helvetica, sans-serif;
-  overflow:hidden;
+  font-family: Arial, Helvetica, sans-serif;
+  overflow: hidden;
   text-overflow: ellipsis;
   max-width: 20ch;
   max-height: 3rem;
   white-space: wrap;
-
 }
 
-.under-card{
+.under-card {
   display: flex;
-  position:relative;
+  position: relative;
   justify-content: flex-end;
   margin-left: 20px;
   height: 4rem;
   width: 15rem;
   background-color: white;
   border-radius: 0.5rem;
-  box-shadow: -15px 16px 22px -11px rgba(0,0,0,0.91);
--webkit-box-shadow: -15px 16px 22px -11px rgba(0,0,0,0.91);
--moz-box-shadow: -15px 16px 22px -11px rgba(0,0,0,0.91);
-margin-top: 1rem;
-margin-bottom: 2rem;
+  box-shadow: -15px 16px 22px -11px rgba(0, 0, 0, 0.91);
+  -webkit-box-shadow: -15px 16px 22px -11px rgba(0, 0, 0, 0.91);
+  -moz-box-shadow: -15px 16px 22px -11px rgba(0, 0, 0, 0.91);
+  margin-top: 1rem;
+  margin-bottom: 2rem;
 }
 
 .product-price {
   color: #000000;
   position: absolute;
-  right:6.5rem;
-  top:0.5rem;
+  right: 6.5rem;
+  top: 0.5rem;
   font-size: 30px;
   font-weight: 700;
   z-index: 1;
@@ -106,7 +102,7 @@ margin-bottom: 2rem;
 
 .offer {
   display: flex;
-  position:relative;
+  position: relative;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
@@ -117,18 +113,13 @@ margin-bottom: 2rem;
   color: rgb(255, 255, 255);
   font-weight: 600;
   font-size: 15px;
-  box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.74);
--webkit-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.74);
--moz-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.74);
+  box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.74);
+  -webkit-box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.74);
+  -moz-box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.74);
 }
-
-
-
-
 
 .jumbotron {
   background-color: #bdacff !important;
-
 }
 .latest-release {
   border-bottom: 1px solid #bdacff;
@@ -137,12 +128,12 @@ margin-bottom: 2rem;
 }
 
 .product-category {
-  color : #ffffff;
+  color: #ffffff;
   font-weight: 700;
   position: absolute;
   bottom: -0.5rem;
   background-color: #6767675a;
- 
+
   padding: 0.4rem;
   padding-top: 0rem;
   padding-bottom: 0rem;
@@ -153,4 +144,18 @@ margin-bottom: 2rem;
   background-color: #bdacff !important;
   border-bottom: 3px;
   border: 2px solid white !important;
+}
+
+.submit-comment {
+  position: absolute;
+  z-index: 3;
+  bottom: 0px;
+  left: 0px;
+  background-color: #8061fb !important;
+  color: white !important;
+  border-radius: 10%;
+  border: 3px solid #8061fb;
+}
+.textarea-comment {
+  position: relative;
 }
