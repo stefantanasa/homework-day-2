@@ -3,7 +3,7 @@ import React, { Component } from "react";
 import CommentArea from "./CommentArea";
 
 class OneCard extends Component {
-  // state = { data: [] };
+  state = { isSelected: false };
 
   // componentDidMount = async () => {
   //   try {
@@ -31,7 +31,10 @@ class OneCard extends Component {
   render() {
     return (
       <div>
-        <div className="one-card">
+        <div
+          className="one-card"
+          onClick={() => this.setState({ isSelected: !this.state.isSelected })}
+        >
           <img className="one-card-image" alt="" src={this.props.image} />
           <p className="product-title">{this.props.title}</p>
           <p className="product-category ">{this.props.category}</p>
@@ -52,7 +55,10 @@ class OneCard extends Component {
           </div>
         </div>
 
-        <CommentArea asin={this.props.asin} />
+        <CommentArea
+          asin={this.props.asin}
+          isSelected={this.state.isSelected}
+        />
       </div>
     );
   }

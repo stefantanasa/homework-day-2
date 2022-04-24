@@ -159,3 +159,10 @@
 .textarea-comment {
   position: relative;
 }
+.delete-btn {
+  position: relative;
+}
+
+.comments-list {
+  width: 240px;
+}

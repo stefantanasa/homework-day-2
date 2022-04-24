@@ -3,7 +3,7 @@ import React, { Component } from "react";
 import AddComment from "./AddComment";
 import CommentsList from "./CommentsList";
 class CommentArea extends Component {
-  state = { data: [] };
+  state = { data: [], selected: false };
 
   componentDidMount = async () => {
     try {
@@ -31,8 +31,10 @@ class CommentArea extends Component {
   render() {
     return (
       <div className="bg-dark text-white ml-3">
-        <AddComment className="under-card" asin={this.props.asin} />
-        <CommentsList comments={this.state.data} />
+        {this.props.isSelected && (
+          <AddComment className="under-card" asin={this.props.asin} />
+        )}
+        {this.props.isSelected && <CommentsList comments={this.state.data} />}
       </div>
     );
   }

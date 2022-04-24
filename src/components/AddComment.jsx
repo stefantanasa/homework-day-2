@@ -1,16 +1,17 @@
 import React, { Component } from "react";
 
-import { Form, Button } from "react-bootstrap";
+import { Form } from "react-bootstrap";
 class AddComment extends Component {
   state = {
     rate: 5,
-    comment: "Worked",
+    comment: "",
     elementId: this.props.asin,
   };
 
   onCommentWriting = (e) => {
     this.setState({
       ...this.state,
+      comment: e.target.value,
     });
     console.log(this.state);
   };
@@ -58,8 +59,8 @@ class AddComment extends Component {
       <div className="bg-dark text-white ml-3">
         <Form onSubmit={this.submitForm}>
           <Form.Group controlId="exampleForm.ControlSelect1">
-            <Form.Label>Write a comment to: {this.props.asin} </Form.Label>
-            <Form.Control as="select" onClick={this.onSelectRating}>
+            <Form.Label>Write a comment </Form.Label>
+            <Form.Control as="select" onChange={this.onSelectRating}>
               <option value={1}>1 Star</option>
               <option value={2}>2 Stars</option>
               <option value={3}>3 Stars</option>
