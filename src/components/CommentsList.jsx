@@ -44,7 +44,7 @@ const CommentsList = ({ comments }) => {
             </ListGroup.Item>
             <button
               key={element._id}
-              onClick={() => deleteComment(element._id)}
+              onClick={() => this.props.onDeleteComment(element._id)}
               className="btn btn-warning delete-btn"
             >
               <i className="fa-solid fa-trash-can"></i>
