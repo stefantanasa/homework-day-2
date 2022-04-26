@@ -12,6 +12,7 @@ import horror from "./Data/horror.json";
 class App extends Component {
   state = {
     asinSelected: null,
+    colDisplay: "d-none",
     data: [],
     comments: [],
     commentToDelete: null,
@@ -25,7 +26,17 @@ class App extends Component {
     this.setState({
       ...this.state,
       asinSelected: asin,
+      colDisplay: "d-block",
     });
+    if (
+      this.state.colDisplay === "d-block" &&
+      this.state.asinSelected === asin
+    ) {
+      this.setState({
+        ...this.state,
+        colDisplay: "d-none",
+      });
+    }
   };
   getCommentId = (commentId) => {
     console.log(commentId);
@@ -168,13 +179,13 @@ class App extends Component {
         <MyNav />
         <Welcome />
         <Row>
-          <Col lg={8}>
+          <Col>
             <LatestRelease
               books={this.state.data}
               selectBook={this.selectBook}
             />
           </Col>
-          <Col>
+          <Col lg={4} className={this.state.colDisplay}>
             <div>
               <CommentArea
                 onPostComment={this.onPostComment}
