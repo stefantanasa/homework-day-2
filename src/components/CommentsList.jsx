@@ -2,10 +2,22 @@ import React, { Component } from "react";
 
 import { ListGroup } from "react-bootstrap";
 import AddComment from "./AddComment";
-const CommentsList = ({ comments, onDelete }) => {
+const CommentsList = ({
+  comments,
+  onDelete,
+  getCommentRate,
+  getCommentText,
+  onPostComment,
+}) => {
   return (
     <React.Fragment>
-      {comments.length > 0 && <AddComment />}
+      {comments.length > 0 && (
+        <AddComment
+          onPostComment={onPostComment}
+          getCommentRate={getCommentRate}
+          getCommentText={getCommentText}
+        />
+      )}
       <ListGroup className="">
         {comments.map((com) => (
           <div key={com._id}>

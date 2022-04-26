@@ -11,16 +11,17 @@ import horror from "./Data/horror.json";
 
 class App extends Component {
   state = {
-    newComment: { rate: null, comment: "" },
     asinSelected: null,
     data: [],
     comments: [],
     commentToDelete: null,
+    posted: false,
+    newComment: { rate: null, comment: "", elementId: null },
   };
   books = horror.slice(0, 115);
 
   selectBook = (asin) => {
-    console.log("OK, works!", asin);
+    console.log("OK, works! asin: ", asin);
     this.setState({
       ...this.state,
       asinSelected: asin,
@@ -34,11 +35,28 @@ class App extends Component {
     });
   };
 
-  getElementId = (elementId) => {
-    console.log(elementId);
+  getCommentRate = (rate) => {
+    console.log("Rate: ", rate);
+
     this.setState({
       ...this.state,
-      newComment: { rate: elementId },
+      newComment: {
+        ...this.state.newComment,
+        rate: rate,
+        elementId: this.state.asinSelected,
+      },
+    });
+  };
+  getCommentText = (text) => {
+    console.log("Comment: ", text);
+
+    this.setState({
+      ...this.state,
+      newComment: {
+        ...this.state.newComment,
+        elementId: this.state.asinSelected,
+        comment: text,
+      },
     });
   };
 
@@ -94,17 +112,17 @@ class App extends Component {
   };
   componentDidUpdate = async (prevProps, PrevState) => {
     if (PrevState.asinSelected !== this.state.asinSelected) {
-      console.log("fetch");
       await this.fetchData();
-    } else {
-      console.log("nofetch");
     }
     if (PrevState.commentToDelete !== this.state.commentToDelete) {
-      console.log("delete");
+      console.log("delete ");
       await this.onDeleteComment(this.state.commentToDelete);
       await this.fetchData();
+    }
+    if (PrevState.comments !== this.state.comments) {
+      console.log("fetch! New Data!");
     } else {
-      console.log("no delete");
+      console.log("no fetch");
     }
   };
 
@@ -114,13 +132,43 @@ class App extends Component {
       data: this.books,
     });
   };
+
+  onPostComment = async (e) => {
+    e.preventDefault();
+    try {
+      let data = await fetch(
+        "https://striveschool-api.herokuapp.com/api/comments/",
+        {
+          method: "POST",
+          body: JSON.stringify(this.state.newComment),
+          headers: {
+            Authorization:
+              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MWIwOWZmNTRjZmY1ZjAwMTU5MGJkYWUiLCJpYXQiOjE2NTA2NjM3MDYsImV4cCI6MTY1MTg3MzMwNn0.t-bhGh4Ste0C-qGe1NWOGB8jhgMqxJtbscKzTT-wrio",
+            "Content-type": "application/json",
+          },
+        }
+      );
+      if (data.ok) {
+        data = await data.json();
+        console.log("✅ You just posted");
+
+        this.setState({
+          ...this.state,
+          comments: [...this.state.comments, data],
+        });
+      }
+    } catch (error) {
+      console.log("❌There is an error: ", error);
+    }
+  };
+
   render() {
     return (
       <div className="App bg-dark">
         <MyNav />
         <Welcome />
         <Row>
-          <Col md={8}>
+          <Col lg={8}>
             <LatestRelease
               books={this.state.data}
               selectBook={this.selectBook}
@@ -128,11 +176,12 @@ class App extends Component {
           </Col>
           <Col>
             <div>
-              <h1 className="text-white latest-release">Comments</h1>
               <CommentArea
+                onPostComment={this.onPostComment}
                 comments={this.state.comments}
                 onDelete={this.getCommentId}
-                getElementId={this.getElementId}
+                getCommentRate={this.getCommentRate}
+                getCommentText={this.getCommentText}
               />
             </div>
           </Col>
