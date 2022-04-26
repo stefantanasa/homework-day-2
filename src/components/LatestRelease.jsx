@@ -2,9 +2,7 @@ import React, { Component } from "react";
 import horror from "../Data/horror.json";
 import OneCard from "./OneCard";
 
-const LatestRelease = () => {
-  let books = horror.slice(0, 15);
-
+const LatestRelease = ({ books, selectBook }) => {
   return (
     <div>
       <div className=" jumbotron-fluid bg-dark"></div>
@@ -21,6 +19,8 @@ const LatestRelease = () => {
               key={book.asin}
               price={book.price}
               asin={book.asin}
+              // homework
+              selectBook={selectBook}
             />
           ))}
         </div>

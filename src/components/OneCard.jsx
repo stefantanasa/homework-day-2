@@ -3,8 +3,6 @@ import React, { Component } from "react";
 import CommentArea from "./CommentArea";
 
 class OneCard extends Component {
-  state = { isSelected: false };
-
   // componentDidMount = async () => {
   //   try {
   //     let response = await fetch(
@@ -33,10 +31,10 @@ class OneCard extends Component {
       <div>
         <div
           className="one-card"
-          onClick={() => this.setState({ isSelected: !this.state.isSelected })}
+          onClick={() => this.props.selectBook(this.props.asin)}
         >
           <img className="one-card-image" alt="" src={this.props.image} />
-          <p className="product-title">{this.props.title}</p>
+          <p className="product-title">title:{this.props.title}</p>
           <p className="product-category ">{this.props.category}</p>
         </div>
 
@@ -55,10 +53,10 @@ class OneCard extends Component {
           </div>
         </div>
 
-        <CommentArea
+        {/* <CommentArea
           asin={this.props.asin}
           isSelected={this.state.isSelected}
-        />
+        /> */}
       </div>
     );
   }

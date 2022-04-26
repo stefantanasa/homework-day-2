@@ -8,7 +8,7 @@ class AddComment extends Component {
         <Form onSubmit={this.props.onPostComment}>
           <Form.Group controlId="exampleForm.ControlSelect1">
             <Form.Label>Write a comment </Form.Label>
-            <Form.Control as="select" onChange={this.props.onSelectRating}>
+            <Form.Control as="select" onChange={this.props.getElementId}>
               <option value={1}>1 Star</option>
               <option value={2}>2 Stars</option>
               <option value={3}>3 Stars</option>
