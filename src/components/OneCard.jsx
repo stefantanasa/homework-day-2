@@ -34,7 +34,7 @@ class OneCard extends Component {
           onClick={() => this.props.selectBook(this.props.asin)}
         >
           <img className="one-card-image" alt="" src={this.props.image} />
-          <p className="product-title">title:{this.props.title}</p>
+          <p className="product-title">{this.props.title}</p>
           <p className="product-category ">{this.props.category}</p>
         </div>
 

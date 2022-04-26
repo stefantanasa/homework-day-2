@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-import { ListGroup } from "react-bootstrap";
+import { ListGroup, Badge } from "react-bootstrap";
 import AddComment from "./AddComment";
 const CommentsList = ({
   comments,
@@ -18,12 +18,15 @@ const CommentsList = ({
           getCommentText={getCommentText}
         />
       )}
-      <ListGroup className="">
+      <ListGroup>
         {comments.map((com) => (
           <div key={com._id}>
-            <p>Rating: {com.rate}</p>
-            <ListGroup.Item variant="info">
-              Comment:{com.comment}
+            <ListGroup.Item
+              variant="dark"
+              className="d-flex justify-content-between align-items-center"
+            >
+              <Badge variant="warning">{com.rate} stars</Badge>
+              {com.comment}
               <button
                 type="button"
                 onClick={() => onDelete(com._id)}
