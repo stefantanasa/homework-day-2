@@ -8,7 +8,55 @@ class AddComment extends Component {
         <div>Write a comment</div>
         <Form onSubmit={this.props.onPostComment}>
           <Form.Group controlId="exampleForm.ControlSelect1">
-            <Form.Label></Form.Label>
+            <Form.Label>
+              <ToggleButtonGroup
+                name="radio-btn"
+                onClick={(e) => this.props.getCommentRate(e.target.value)}
+                type="radio"
+                defaultValue={null}
+              >
+                <ToggleButton
+                  name="radio-btn"
+                  variant="danger"
+                  value={1}
+                  required
+                >
+                  1 Star
+                </ToggleButton>
+                <ToggleButton
+                  name="radio-btn"
+                  variant="danger"
+                  value={2}
+                  required
+                >
+                  2 Stars
+                </ToggleButton>
+                <ToggleButton
+                  name="radio-btn"
+                  variant="secondary"
+                  value={3}
+                  required
+                >
+                  3 Stars
+                </ToggleButton>
+                <ToggleButton
+                  name="radio-btn"
+                  variant="success"
+                  value={4}
+                  required
+                >
+                  4 Stars
+                </ToggleButton>
+                <ToggleButton
+                  name="radio-btn"
+                  variant="success"
+                  value={5}
+                  required
+                >
+                  5 Stars
+                </ToggleButton>
+              </ToggleButtonGroup>
+            </Form.Label>
             {/* <Form.Control
               required
               as="select"
@@ -20,32 +68,10 @@ class AddComment extends Component {
               <option value={4}>4 Stars</option>
               <option value={5}>5 Stars</option>
             </Form.Control> */}
-            <ToggleButtonGroup
-              required
-              onClick={(e) => this.props.getCommentRate(e.target.value)}
-              type="radio"
-              name="options"
-              defaultValue={null}
-            >
-              <ToggleButton variant="danger" value={1}>
-                1 Star
-              </ToggleButton>
-              <ToggleButton variant="danger" value={2}>
-                2 Stars
-              </ToggleButton>
-              <ToggleButton variant="secondary" value={3}>
-                3 Stars
-              </ToggleButton>
-              <ToggleButton variant="success" value={4}>
-                4 Stars
-              </ToggleButton>
-              <ToggleButton variant="success" value={5}>
-                5 Stars
-              </ToggleButton>
-            </ToggleButtonGroup>
           </Form.Group>
           <Form.Group
             className="textarea-comment"
+            required
             controlId="exampleForm.ControlTextarea1"
             onChange={(e) => this.props.getCommentText(e.target.value)}
           >
